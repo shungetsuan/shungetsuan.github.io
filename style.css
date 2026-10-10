@@ -436,3 +436,42 @@ footer .moon-sig{
   outline:2px solid var(--kurenai);
   outline-offset:3px;
 }
+
+/* ---------------- features subpage ---------------- */
+.page-hero{ text-align:center; padding:56px 0 20px; }
+.page-hero h1{
+  font-family:var(--font-display);
+  font-size:clamp(26px,4.5vw,36px);
+  margin:18px 0 10px;
+  letter-spacing:.05em;
+}
+.page-hero .en-name{
+  font-family:var(--font-accent);
+  font-style:italic;
+  color:var(--ink-soft);
+  font-size:15px;
+}
+.event{
+  padding:34px 0;
+  border-top:1px solid var(--line-soft);
+}
+.event:first-of-type{ border-top:none; padding-top:6px; }
+.event figure{ margin:0 0 20px; }
+.event img{
+  width:100%;
+  height:auto;
+  border:1px solid var(--line);
+  padding:6px;
+  background:var(--paper-deep);
+}
+.event h3{
+  font-family:var(--font-display);
+  font-size:19px;
+  margin:0 0 10px;
+  padding-left:14px;
+  border-left:3px solid var(--moss);
+}
+.event p{ margin:0; font-size:15px; color:var(--ink-soft); }
+.sns-link{ margin-top:22px; }
+
+.event figure.portrait{ max-width:420px; margin-left:auto; margin-right:auto; }
