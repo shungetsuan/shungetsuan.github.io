@@ -1,0 +1,438 @@
+/* ============================================================
+   春月庵 — Shungetsu-an tea room website
+   Design tokens
+   ============================================================ */
+:root{
+  --paper:      #EAE3D2;   /* aged washi paper */
+  --paper-deep: #DFD6BF;   /* slightly deeper paper, for panels */
+  --ink:        #2A2924;   /* sumi ink, warm near-black */
+  --ink-soft:   #55503F;   /* softened ink for body text */
+  --moss:       #55654A;   /* moss / matcha accent */
+  --moss-deep:  #3C4834;
+  --kurenai:    #9B3A2E;   /* deep vermillion — used only for the seal */
+  --line:       #B7AC8E;   /* hairline divider */
+  --line-soft:  #CCC2A6;
+  --gold:       #A78A4A;   /* muted gilt, for small marks */
+
+  --font-display: "Shippori Mincho", "Noto Serif JP", serif;
+  --font-body:    "Noto Sans JP", "Hiragino Sans", sans-serif;
+  --font-accent:  "Cormorant Garamond", serif;
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-weight:300;
+  line-height:1.9;
+  -webkit-font-smoothing:antialiased;
+}
+
+a{ color:inherit; text-decoration:none; }
+
+img{ max-width:100%; display:block; }
+
+/* subtle washi paper texture */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  opacity:.5;
+  background-image:
+    radial-gradient(rgba(0,0,0,.025) 1px, transparent 1px),
+    radial-gradient(rgba(255,255,255,.4) 1px, transparent 1px);
+  background-size:3px 3px, 5px 5px;
+  background-position:0 0, 1.5px 1.5px;
+}
+
+.wrap{
+  position:relative;
+  z-index:1;
+  max-width:880px;
+  margin:0 auto;
+  padding:0 28px;
+}
+
+/* ---------------- nav ---------------- */
+.site-nav{
+  position:relative;
+  z-index:2;
+  padding:26px 0 0;
+}
+.site-nav .wrap{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  font-family:var(--font-display);
+  font-size:14px;
+  letter-spacing:.08em;
+}
+.site-nav .mark{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:16px;
+}
+.site-nav .mark svg{ width:20px; height:20px; }
+.site-nav a.back{
+  border-bottom:1px solid var(--line);
+  padding-bottom:2px;
+  color:var(--ink-soft);
+}
+.site-nav a.back:hover{ color:var(--moss-deep); border-color:var(--moss); }
+
+/* ---------------- hero ---------------- */
+.hero{
+  position:relative;
+  padding:64px 0 70px;
+  text-align:center;
+}
+.hero .eyebrow{
+  font-family:var(--font-accent);
+  font-style:italic;
+  letter-spacing:.18em;
+  font-size:15px;
+  color:var(--moss-deep);
+  margin:0 0 22px;
+}
+.hero .moon-sig{
+  width:74px;
+  height:74px;
+  margin:0 auto 26px;
+  opacity:.9;
+}
+.hero h1{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:clamp(28px, 5vw, 42px);
+  line-height:1.55;
+  margin:0 0 34px;
+  letter-spacing:.03em;
+}
+.hero h1 .accent{ color:var(--kurenai); }
+
+.arts-menu{
+  display:inline-flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:0;
+  list-style:none;
+  margin:0 auto;
+  padding:0;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.arts-menu li{
+  font-family:var(--font-display);
+  font-size:17px;
+  padding:12px 22px;
+  border-left:1px solid var(--line-soft);
+}
+.arts-menu li:first-child{ border-left:none; }
+
+/* ---------------- section chrome ---------------- */
+section{
+  position:relative;
+  padding:66px 0;
+}
+section + section{
+  border-top:1px solid var(--line);
+}
+.section-head{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-bottom:36px;
+}
+.phase{
+  width:30px; height:30px;
+  flex:none;
+}
+.section-head h2{
+  font-family:var(--font-display);
+  font-size:23px;
+  font-weight:700;
+  letter-spacing:.06em;
+  margin:0;
+}
+.section-head .en{
+  font-family:var(--font-accent);
+  font-style:italic;
+  color:var(--ink-soft);
+  font-size:14px;
+  margin-left:auto;
+  letter-spacing:.05em;
+}
+
+.lead{
+  color:var(--ink-soft);
+  font-size:15.5px;
+  max-width:60ch;
+}
+
+/* ---------------- activity / schedule ---------------- */
+.activity-note{
+  background:var(--paper-deep);
+  border-left:3px solid var(--moss);
+  padding:20px 24px;
+  margin:26px 0 34px;
+  font-size:15px;
+  color:var(--ink);
+}
+.activity-note strong{
+  display:block;
+  font-family:var(--font-display);
+  font-size:15px;
+  margin-bottom:6px;
+  color:var(--moss-deep);
+}
+
+table.schedule{
+  width:100%;
+  border-collapse:collapse;
+  font-size:15px;
+}
+table.schedule th, table.schedule td{
+  text-align:left;
+  padding:14px 10px;
+  border-bottom:1px solid var(--line-soft);
+}
+table.schedule thead th{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:13px;
+  letter-spacing:.08em;
+  color:var(--moss-deep);
+  border-bottom:1px solid var(--ink);
+}
+table.schedule td.day{
+  font-family:var(--font-display);
+  white-space:nowrap;
+}
+table.schedule td.day .en{
+  display:block;
+  font-family:var(--font-accent);
+  font-style:italic;
+  color:var(--ink-soft);
+  font-size:12.5px;
+}
+table.schedule td.time{ font-variant-numeric:tabular-nums; }
+
+/* ---------------- pricing ---------------- */
+.price-note{
+  font-size:14px;
+  color:var(--ink-soft);
+  margin:-14px 0 30px;
+}
+.price-note .tag{
+  display:inline-block;
+  border:1px solid var(--kurenai);
+  color:var(--kurenai);
+  padding:2px 9px;
+  border-radius:2px;
+  font-size:12px;
+  letter-spacing:.06em;
+  margin-right:8px;
+}
+.price-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:0;
+  border-top:1px solid var(--ink);
+  border-bottom:1px solid var(--ink);
+}
+.price-tier{
+  padding:30px 18px;
+  text-align:center;
+  border-left:1px solid var(--line);
+}
+.price-tier:first-child{ border-left:none; }
+.price-tier .rank{
+  font-family:var(--font-accent);
+  font-style:italic;
+  font-size:13px;
+  letter-spacing:.1em;
+  color:var(--ink-soft);
+}
+.price-tier h3{
+  font-family:var(--font-display);
+  font-size:19px;
+  margin:8px 0 16px;
+}
+.price-tier .amount{
+  font-family:var(--font-display);
+  font-size:26px;
+  color:var(--moss-deep);
+}
+.price-tier .amount small{
+  font-family:var(--font-body);
+  font-size:13px;
+  color:var(--ink-soft);
+  margin-left:2px;
+}
+
+/* ---------------- teacher (brief) ---------------- */
+.teacher-card{
+  max-width:520px;
+  margin:0 auto;
+  text-align:center;
+}
+.teacher-mark{
+  width:72px;
+  height:72px;
+  margin:0 auto 20px;
+  opacity:.95;
+}
+.teacher-name{
+  font-family:var(--font-display);
+  font-size:24px;
+  margin:0 0 14px;
+}
+.teacher-titles{
+  list-style:none;
+  margin:0 0 26px;
+  padding:0;
+  font-size:14.5px;
+  color:var(--ink-soft);
+  display:inline-flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:6px 0;
+}
+.teacher-titles li{
+  padding:0 14px;
+  position:relative;
+}
+.teacher-titles li + li::before{
+  content:"｜";
+  position:absolute;
+  left:-3px;
+  color:var(--line);
+}
+.teacher-bio{
+  text-align:left;
+  border-top:1px solid var(--line);
+  padding-top:22px;
+  margin-top:4px;
+}
+.teacher-bio p{
+  margin:0 0 16px;
+  font-size:15px;
+  color:var(--ink-soft);
+  line-height:1.9;
+}
+.teacher-bio p:last-child{ margin-bottom:0; }
+.teacher-en{
+  font-family:var(--font-accent);
+  font-style:italic;
+  color:var(--ink) !important;
+  font-size:17px;
+  line-height:1.7;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-family:var(--font-display);
+  font-size:14.5px;
+  letter-spacing:.06em;
+  padding:12px 26px;
+  border:1px solid var(--ink);
+  color:var(--ink);
+  transition:background .2s ease, color .2s ease;
+}
+.btn:hover{ background:var(--ink); color:var(--paper); }
+.btn svg{ width:14px; height:14px; }
+
+/* ---------------- access / footer ---------------- */
+.access-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  font-size:15px;
+}
+.access-grid dt{
+  font-family:var(--font-display);
+  font-size:12.5px;
+  letter-spacing:.1em;
+  color:var(--moss-deep);
+  margin-bottom:6px;
+}
+.access-grid dd{ margin:0 0 22px; color:var(--ink-soft); }
+.placeholder-flag{
+  display:inline-block;
+  font-size:11.5px;
+  color:var(--kurenai);
+  border:1px dashed var(--kurenai);
+  padding:1px 7px;
+  border-radius:2px;
+  margin-left:8px;
+  letter-spacing:.04em;
+}
+
+footer{
+  padding:40px 0 60px;
+  text-align:center;
+  font-size:12.5px;
+  color:var(--ink-soft);
+  letter-spacing:.05em;
+}
+footer .moon-sig{
+  width:32px; height:32px;
+  margin:0 auto 14px;
+  opacity:.7;
+}
+
+.lang-tabs{
+  display:flex;
+  justify-content:center;
+  gap:0;
+  border-bottom:1px solid var(--line);
+  margin:28px 0 26px;
+}
+.lang-tabs button{
+  font-family:var(--font-display);
+  background:none;
+  border:none;
+  cursor:pointer;
+  font-size:15px;
+  letter-spacing:.08em;
+  padding:12px 30px;
+  color:var(--ink-soft);
+  position:relative;
+  top:1px;
+}
+.lang-tabs button.active{
+  color:var(--ink);
+  border-bottom:2px solid var(--kurenai);
+}
+
+.lang-panel{ display:none; }
+.lang-panel.active{ display:block; }
+
+/* ---------------- responsive ---------------- */
+@media (max-width: 640px){
+  .arts-menu li{ padding:10px 14px; font-size:15px; }
+  .price-grid{ grid-template-columns:1fr; }
+  .price-tier{ border-left:none; border-top:1px solid var(--line); }
+  .price-tier:first-child{ border-top:none; }
+  .access-grid{ grid-template-columns:1fr; }
+  .section-head{ flex-wrap:wrap; }
+  .section-head .en{ margin-left:0; width:100%; }
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+}
+
+:focus-visible{
+  outline:2px solid var(--kurenai);
+  outline-offset:3px;
+}
