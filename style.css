@@ -475,3 +475,6 @@ footer .moon-sig{
 .sns-link{ margin-top:22px; }
 
 .event figure.portrait{ max-width:420px; margin-left:auto; margin-right:auto; }
+
+.event-photo{ margin:0 0 22px; }
+.event-photo img{ width:100%; height:auto; border:1px solid var(--line); padding:6px; background:var(--paper-deep); }
