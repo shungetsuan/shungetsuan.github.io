@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-site-verification" content="Os-3GmkIK7PucMXJQpI_1S6jvOhZIUpn-F5rvbQlNQ8" />
 <title>お茶室「春月庵」｜日本古来の作法を学ぶ</title>
 <meta name="description" content="お茶室「春月庵」— 茶道・香道・禅・華道・懐石料理を通じて日本古来の作法を学ぶ教室">
 <link rel="icon" href="assets/favicon.ico" sizes="any">
@@ -72,7 +71,7 @@
         <tbody>
           <tr>
             <td class="day">火曜日<span class="en">Tuesday</span></td>
-            <td class="time">11:00 〜 15:00</td>
+            <td class="time">10:00 〜 15:00</td>
           </tr>
           <tr>
             <td class="day">木曜日<span class="en">Thursday</span></td>
@@ -190,6 +189,60 @@
           <dd>JR大口駅</dd>
         </div>
       </dl>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       お問い合わせ（Contact）セクション
+       メールアドレスは、下の ★入力欄★ の1か所だけ書き換えれば、
+       このセクションのすべてのリンク・表示に反映されます。
+       ============================================================ -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <svg class="phase" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9.5" stroke="#2A2924" stroke-width="1"/><path d="M12 2.5a9.5 9.5 0 0 1 0 19 8 8 0 0 0 0-19z" fill="#55654A"/></svg>
+        <h2>お問い合わせ</h2>
+        <span class="en">Contact</span>
+      </div>
+
+      <p class="lead">レッスン・見学のご予約、その他のお問い合わせは、下記のメールアドレスまでご連絡ください。</p>
+
+      <!-- ################################################################
+           ★★★ メールアドレス入力欄（ここだけ書き換えてください） ★★★
+           下の引用符 " " の中に、実際のメールアドレスを入力します。
+           例）const CONTACT_EMAIL = "info@shungetsuan.jp";
+           ################################################################ -->
+      <script>
+        const CONTACT_EMAIL = "example@example.com";   // ← ★ここにメールアドレスを入力★
+      </script>
+
+      <ul class="contact-list">
+        <li class="contact-item">
+          <span class="contact-label">レッスン・見学予約</span>
+          <!-- メールアドレスは上の入力欄から自動で入ります（ここは編集不要） -->
+          <a class="contact-mail" data-mail data-subject="レッスン・見学予約について" href="#contact"></a>
+        </li>
+        <li class="contact-item">
+          <span class="contact-label">その他お問い合わせ</span>
+          <!-- メールアドレスは上の入力欄から自動で入ります（ここは編集不要） -->
+          <a class="contact-mail" data-mail data-subject="お問い合わせ" href="#contact"></a>
+        </li>
+      </ul>
+
+      <!-- 赤い点線の「未入力」表示：入力欄が仮のアドレスのままの間だけ表示され、
+           実際のアドレスを入れると自動で消えます（編集不要） -->
+      <p class="placeholder-flag" id="mail-flag" hidden>未入力：メールアドレスの入力欄（CONTACT_EMAIL）が仮のアドレスのままです</p>
+
+      <script>
+        // 入力欄(CONTACT_EMAIL)のアドレスを、上の2つのリンクに反映します（編集不要）
+        document.querySelectorAll('a[data-mail]').forEach(a => {
+          a.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent(a.dataset.subject);
+          a.textContent = CONTACT_EMAIL;
+        });
+        if (CONTACT_EMAIL.includes('example.com')) {
+          document.getElementById('mail-flag').hidden = false;
+        }
+      </script>
     </div>
   </section>
 

@@ -476,5 +476,34 @@ footer .moon-sig{
 
 .event figure.portrait{ max-width:420px; margin-left:auto; margin-right:auto; }
 
-.event-photo{ margin:0 0 22px; }
-.event-photo img{ width:100%; height:auto; border:1px solid var(--line); padding:6px; background:var(--paper-deep); }
+/* ---------------- contact (index.html #contact) ---------------- */
+.contact-list{
+  list-style:none;
+  margin:28px 0 0;
+  padding:0;
+  border-top:1px solid var(--ink);
+}
+.contact-item{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:6px 24px;
+  padding:18px 4px;
+  border-bottom:1px solid var(--line-soft);
+}
+.contact-label{
+  font-family:var(--font-display);
+  font-size:15px;
+  min-width:9em;
+  color:var(--moss-deep);
+}
+.contact-mail{
+  font-size:15.5px;
+  color:var(--ink);
+  border-bottom:1px solid var(--line);
+  padding-bottom:1px;
+  word-break:break-all;
+}
+.contact-mail:hover{ color:var(--moss-deep); border-color:var(--moss); }
+.contact-list + .placeholder-flag{ margin:16px 0 0; margin-left:0; }
+.placeholder-flag[hidden]{ display:none; }
